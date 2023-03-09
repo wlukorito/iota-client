@@ -17,9 +17,17 @@ export interface Warehouse {
   location: string;
 }
 
-export type Status = "Ordered" | "Awaiting Shipment" | "Shipped" | "Delivered";
+export enum Status {
+  Ordered = "Ordered",
+  AwaitingShipment = "Awaiting Shipment",
+  Shipped = "Shipped",
+  Delivered = "Delivered",
+}
 
-export type Movement = "Inbound" | "Outbound";
+export enum Movement {
+  Inbound = "Inbound",
+  Outbound = "Outbound",
+}
 
 export interface Supplier {
   id: string;
@@ -40,4 +48,16 @@ export interface Supplies {
   shippedOn: Date;
   deliveryDate: Date;
   supplier: Supplier;
+}
+
+export interface DataTableColumn {
+  accessor: string;
+  title: string;
+}
+
+export interface SupplyChainLists {
+  items: SupplyChainItem[];
+  couriers: Courier[];
+  warehouses: Warehouse[];
+  suppliers: Supplier[];
 }
